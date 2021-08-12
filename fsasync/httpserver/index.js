@@ -10,7 +10,9 @@ const server = http.createServer((req,res)=>{
     }else if(req.url == "/userapi"){
         fs.readFile(`${__dirname}/userapi/userapi.json`,"utf-8",(err,data)=>{
             console.log(data);
-            res.end(data);
+            // res.end(data);
+            const objectData = JSON.parse(data)
+            res.end(objectData[2].color);
         }); 
     }else if(req.url == "/usera"){
         res.end("hello from the userapi  sides");
