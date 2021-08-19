@@ -17,6 +17,6 @@ res.render("index.hbs");
 app.get('/',(req,res)=>{
     res.send("hello for the expresfs server");
 });
-app.listen(8000, ()=>{
+app.listen(2500, ()=>{
     console.log('listining to the port 8000');
 });

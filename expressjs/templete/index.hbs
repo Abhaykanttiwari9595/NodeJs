@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University website desine</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://use.fontawesome.com/bbc7ac2d89.js"></script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="image/logo.png" alt="logo"></a>
+            <div class="nav-links" id="nav-Links">
+                <i class="fa fa-times" aria-hidden="true" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="http://">HOME</a></li>
+                    <li><a href="http://">ABOUT</a></li>
+                    <li><a href="http://">COURSE</a></li>
+                    <li><a href="http://">BLOG</a></li>
+                    <li><a href="http://">CONTECT{{channelname}}</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>World Biggest University</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Magni asperiores nulla, animi inventore
+                quo expedita modi amet ipsum ea? Odio, asperiores quia.
+            </p>
+            <a href="http://" class="visit-us">Visit Us To Know More</a>
+        </div>
+    </section>
+
+    <!-- Course -->
+
+    <section class="course">
+        <h1>Course that are Offer</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
+        <div class="row">
+            <div class="course-col">
+                <h3>Intermediate</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Veritatis, vero?
+                     Eius ut repellendus voluptatem aperiam assumenda fugit quod, 
+                     atque aliquam, at qui a asperiores, n
+                </p>
+            </div>
+            <div class="course-col">
+                <h3>Degree</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Veritatis, vero?
+                     Eius ut repellendus voluptatem aperiam assumenda fugit quod, 
+                     atque aliquam, at qui a asperiores, n
+                </p>
+            </div>
+            <div class="course-col">
+                <h3>Post Graduation</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Veritatis, vero?
+                     Eius ut repellendus voluptatem aperiam assumenda fugit quod, 
+                     atque aliquam, at qui a asperiores, n
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- javascript code -->
+    <script>
+        var navLinks = document.getElementById("nav-Links")
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>
+</body>
+</html>
