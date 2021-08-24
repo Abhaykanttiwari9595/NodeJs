@@ -1,5 +1,5 @@
 // Connect NodeJs Expressjs to MongoDB using Mongoose
-
+const validator = require("validator");
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/CWAdatabase",{ useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => console.log("connect sucessful"))
@@ -8,50 +8,67 @@ mongoose.connect("mongodb://localhost:27017/CWAdatabase",{ useNewUrlParser: true
 // create schema
 
 const playlistSchema = new mongoose.Schema({
-    name:String,
+    name:{
+        type:String,
+        required:true,
+        unique:true.valueOf,
+        uppercase:true ,     //validation
+        trim:true,
+        minLength:2,
+        maxLength:12
+    },
     lang:String,
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("email is invalid");
+            }
+        }
+    },
     mobile:String,
-    mid:String
+    mid:String,
+    viedos:{
+        type:Number,
+        validate(value){
+            if(value < 0){
+                throw new Error("viedos count should not be negative");
+            }
+        }
+    }
 })
 
 //collection creation
 const Playlist = new mongoose.model("student",playlistSchema);
 
-// create document or insert
-
-// const reactPlaylist = new Playlist({
-//     name:"Ankit",
-//     lang:"expressjs",
-//     mobile:8400424413,
-//     mid:"kant"
-// })
-// reactPlaylist.save();
-
-
-//comment wala code v chlega but manlijye kabhi galet ho jaye to hume pata nai
-//chlega , yesliye hm error wala v condition v likhenge
 
 const createDocument = async () =>{
     try{
         const reactPlaylist = new Playlist({
             name:"aman",
             lang:"expressjs",
+            email:"tabhaykant1@gmail.com",
             mobile:4644445,
-            mid:"kant"
+            mid:"kant",
+            viedos:7
         })
 
         const jsPlaylist = new Playlist({
             name:"Rohit",
             lang:"MongoDB",
             mobile:4578255,
-            mid:"kant"
+            mid:"kant",
+            viedos:4
         })
 
         const expressPlaylist = new Playlist({
-            name:"Surya",
+            name:"         priya",
             lang:"React",
-            mobile:555578,
-            mid:"kant"
+            mobile:0,
+            mid:"kant",
+            viedos:4
         })
         const result = await Playlist.insertMany([reactPlaylist,jsPlaylist,expressPlaylist]);
         console.log(result);

@@ -60,4 +60,17 @@ const createDocument = async () =>{
     }
     
 }
-createDocument();
+//createDocument();
+//hum bar bar document save karna nai chyte isliye hm "createDocument" ko,
+// comment kar dete hai read ke time
+
+const getDocument = async () =>{
+    //const result = await Playlist.find(); 
+
+    // ager data me koi specific data chaiye
+    const result = await Playlist.find({lang : "React"}); 
+    
+    console.log(result);
+}
+
+getDocument();
